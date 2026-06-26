@@ -2,6 +2,8 @@
 
 ## 2026-06-26
 
+- 2026-06-26 | manual | word_counts.md | created reading word count table
+
 - 2026-06-26 | enrich-reading | mahler/01_s01_introduction.md | added frontmatter + TL;DR
 - 2026-06-26 | enrich-reading | mahler/02_s02_credibility_and_experience_rating.md | added frontmatter + TL;DR
 - 2026-06-26 | enrich-reading | mahler/03_s03_the_data_sets.md | added frontmatter + TL;DR
