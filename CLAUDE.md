@@ -15,6 +15,8 @@ Exam 8/
 │
 └── modified_mds/                   — working copies for AI-assisted study
     ├── changelog.md                — log of every change made in this folder
+    ├── concepts/
+    │   └── index.md               — cross-reference map: concept → files that cover it
     ├── syllabus.md
     ├── asop_12.md
     ├── bailey_&_simon.md
@@ -51,6 +53,44 @@ Exam 8/
 | `mahler.md` | Mahler | |
 | `syllabus.md` | CAS | Exam 8 syllabus |
 
+## File Structure in modified_mds
+
+Every substantive chapter file has been enriched with a YAML frontmatter block and a TL;DR summary. The schema is:
+
+```yaml
+---
+paper: <snake_case paper name>
+chapter: <integer, or null for single-file readings>
+title: <chapter title as it appears in the first heading>
+topics: [<snake_case concept tags>]
+key_formulas: [<named formulas or estimators>]
+---
+```
+
+Immediately after the frontmatter, each file has a TL;DR block:
+
+```
+> **TL;DR**
+> - <exam-focused bullet>
+> - ...
+```
+
+The body content follows unchanged after the TL;DR.
+
+## Navigation Strategy for AI Agents
+
+When answering a question that may span multiple files:
+
+1. **Start with `modified_mds/concepts/index.md`** — look up the relevant concept to find which files cover it, rather than scanning all files blindly.
+2. **Read the frontmatter and TL;DR first** — this fits in a fraction of the context of the full chapter and usually tells you whether the file is relevant.
+3. **Read the full chapter body** only if the TL;DR confirms it contains what you need.
+
+This keeps context usage low and avoids loading irrelevant material.
+
 ## Custom Skills & Agents
 
 Custom slash commands live in `.claude/commands/` and custom agents in `.claude/agents/`.
+
+| Command | Description |
+|---|---|
+| `/enrich-reading <name>` | Add frontmatter + TL;DR to a reading and update the concepts index |
