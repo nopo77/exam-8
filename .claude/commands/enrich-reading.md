@@ -2,11 +2,11 @@ Enrich the Exam 8 reading "$ARGUMENTS" by adding YAML frontmatter, a TL;DR summa
 
 ## Step 1 — Locate the target files
 
-Resolve "$ARGUMENTS" to files in `modified_mds/` using this logic:
+Resolve "$ARGUMENTS" to files in `study/readings/` using this logic:
 
-- If `modified_mds/$ARGUMENTS/` is a directory → target all `.md` files inside it
-- If `modified_mds/$ARGUMENTS.md` exists → target just that one file
-- If neither matches → list valid reading names from `modified_mds/` and stop
+- If `study/readings/$ARGUMENTS/` is a directory → target all `.md` files inside it
+- If `study/readings/$ARGUMENTS.md` exists → target just that one file
+- If neither matches → list valid reading names from `study/readings/` and stop
 
 From the resolved files, **skip**:
 - Any file whose name starts with `00_` (table of contents files)
@@ -47,7 +47,7 @@ Keep bullets exam-focused: things a candidate needs to recall or apply, not pros
 
 ## Step 4 — Update the concepts index
 
-The shared index lives at `modified_mds/concepts/index.md`. If the file does not exist, create the `concepts/` directory and the file with this header:
+The shared index lives at `study/concepts/index.md`. If the file does not exist, create the `concepts/` directory and the file with this header:
 
 ```markdown
 # Concepts Index
@@ -61,27 +61,11 @@ For each topic listed in the frontmatter you just wrote:
 1. Find or create a `## <Topic Name>` heading (convert snake_case to Title Case, e.g. `bühlmann_credibility` → `## Bühlmann Credibility`). Keep headings sorted alphabetically.
 2. Under that heading, add a link line if it does not already exist:
    ```
-   - [<Paper display name> — <Chapter Title>](../path/to/file.md)
+   - [<Paper display name> — <Chapter Title>](../readings/path/to/file.md)
    ```
-   Use a path relative from `modified_mds/concepts/` to the target file.
+   Use a path relative from `study/concepts/` to the target file.
 
 Do not duplicate links that are already present.
-
-## Step 5 — Log every change to the changelog
-
-Append one line per modified file to `modified_mds/changelog.md`, using this format:
-
-```
-- YYYY-MM-DD | enrich-reading | <path relative to modified_mds/> | added frontmatter + TL;DR
-```
-
-Add one additional line for the concepts index update:
-
-```
-- YYYY-MM-DD | enrich-reading | concepts/index.md | updated with topics from <paper name>
-```
-
-Use today's actual date.
 
 ## Constraints
 

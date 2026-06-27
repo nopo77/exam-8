@@ -13,47 +13,42 @@ Exam 8/
 ├── source_pdfs/                    — original PDFs (READ-ONLY)
 ├── source_mds/                     — PDFs converted to Markdown (READ-ONLY)
 │
-└── modified_mds/                   — working copies for AI-assisted study
-    ├── changelog.md                — log of every change made in this folder
+└── study/                          — working copies for AI-assisted study
+    ├── syllabus.md
+    ├── word_counts.md
     ├── concepts/
     │   └── index.md               — cross-reference map: concept → files that cover it
-    ├── syllabus.md
-    ├── asop_12.md
-    ├── bailey_&_simon.md
-    ├── bailey_&_simon_discussion.md
-    ├── mahler.md
-    ├── bahnemann/                  — multi-chapter papers are split into files
-    ├── chalk_et_al/
-    ├── couret_&_venter/
-    ├── fisher_et_al/
-    ├── goldburd_et_al/
-    └── holmes_&_casotto/
+    ├── flashcards/                 — generated Anki flashcard CSVs
+    └── readings/                   — all source papers
+        ├── asop_12.md
+        ├── bailey_&_simon.md
+        ├── bahnemann/              — multi-chapter papers are split into files
+        ├── chalk_et_al/
+        ├── couret_&_venter/
+        ├── fisher_et_al/
+        ├── goldburd_et_al/
+        ├── holmes_&_casotto/
+        └── mahler/
 ```
 
-## Workflow Rules
-
-- **Never modify** anything in `source_pdfs/` or `source_mds/`. These are original, unaltered sources.
-- All edits go to `modified_mds/`. Files there are copies of `source_mds/` with `.pdf` removed from the name.
-- **Every change** to any file in `modified_mds/` must be logged in `modified_mds/changelog.md`.
-- Errata from `source_mds/*_errata.pdf.md` are applied directly into the corresponding `modified_mds/` file.
-
 ## Source Texts
+
+All source papers live under `study/readings/`.
 
 | File/Folder | Author(s) | Notes |
 |---|---|---|
 | `asop_12.md` | Actuarial Standards Board | ASOP No. 12 |
 | `bahnemann/` | Bahnemann | Errata applied 2026-06-26 |
-| `bailey_&_simon.md` | Bailey & Simon | |
-| `bailey_&_simon_discussion.md` | Bailey & Simon | Discussion paper |
+| `bailey_&_simon.md` | Bailey & Simon | Discussion merged in |
 | `chalk_et_al/` | Chalk et al. | |
 | `couret_&_venter/` | Couret & Venter | |
 | `fisher_et_al/` | Fisher et al. | |
 | `goldburd_et_al/` | Goldburd et al. | Errata applied 2026-06-26 |
 | `holmes_&_casotto/` | Holmes & Casotto | Errata applied 2026-06-26 |
-| `mahler.md` | Mahler | |
+| `mahler/` | Mahler | |
 | `syllabus.md` | CAS | Exam 8 syllabus |
 
-## File Structure in modified_mds
+## File Structure in study/
 
 Every substantive chapter file has been enriched with a YAML frontmatter block and a TL;DR summary. The schema is:
 
@@ -77,20 +72,17 @@ Immediately after the frontmatter, each file has a TL;DR block:
 
 The body content follows unchanged after the TL;DR.
 
+## Answering Exam Content Questions
+
+When answering any question about exam content (concepts, formulas, methods, derivations, distinctions):
+
+- **Pull exclusively from `study/readings/`**. Do not rely on training knowledge to answer.
+- If outside knowledge is used (e.g., to fill a gap not covered in the readings), **explicitly disclose it** — state that the information comes from outside the assigned readings.
+
 ## Navigation Strategy for AI Agents
 
 When answering a question that may span multiple files:
 
-1. **Start with `modified_mds/concepts/index.md`** — look up the relevant concept to find which files cover it, rather than scanning all files blindly.
+1. **Start with `study/concepts/index.md`** — look up the relevant concept to find which files cover it, rather than scanning all files blindly.
 2. **Read the frontmatter and TL;DR first** — this fits in a fraction of the context of the full chapter and usually tells you whether the file is relevant.
 3. **Read the full chapter body** only if the TL;DR confirms it contains what you need.
-
-This keeps context usage low and avoids loading irrelevant material.
-
-## Custom Skills & Agents
-
-Custom slash commands live in `.claude/commands/` and custom agents in `.claude/agents/`.
-
-| Command | Description |
-|---|---|
-| `/enrich-reading <name>` | Add frontmatter + TL;DR to a reading and update the concepts index |
