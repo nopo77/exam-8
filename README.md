@@ -2,6 +2,24 @@
 
 CAS Exam 8 actuarial exam source materials, organized for AI-assisted studying.
 
+## How to Use This for Studying
+
+**Ask questions on the readings**
+Ask anything about the assigned papers — concepts, derivations, comparisons between methods — and the AI will answer exclusively from the source readings in `study/readings/`, citing the relevant paper and section.
+
+**Answer exam problems with explained reasoning**
+Paste any past CAS Exam 8 problem and the AI will work through it step by step, pulling the relevant formulas and reasoning directly from the readings, the same way you would on the actual exam.
+
+**Generate flashcards**
+Use the `/flashcards` command to produce Anki-importable CSV flashcards for any reading. Cards focus on testable, exam-style recall — formulas, key distinctions, and definitions.
+
+---
+
+**Coming soon**
+- Generate original CAS-style exam questions modeled on the full history of past exam problems, for targeted practice on any reading or topic.
+
+---
+
 ## Folder Structure
 
 ```
