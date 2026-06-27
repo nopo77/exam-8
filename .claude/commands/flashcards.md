@@ -52,7 +52,7 @@ Do not generate cards for:
 - Concepts that are better understood than memorized (high-level intuitions belong in the TL;DR, not flashcards)
 - Duplicate cards — if two files cover the same formula or definition, generate the card only once
 
-Aim for **5–15 cards per chapter file**. Prefer precision over volume.
+The number of cards produced should be based on the amount of important information in the text. Prefer precision over volume.
 
 ## Step 4 — Write the CSV output
 
