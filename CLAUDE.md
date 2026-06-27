@@ -31,23 +31,6 @@ Exam 8/
         └── mahler/
 ```
 
-## Source Texts
-
-All source papers live under `study/readings/`.
-
-| File/Folder | Author(s) | Notes |
-|---|---|---|
-| `asop_12.md` | Actuarial Standards Board | ASOP No. 12 |
-| `bahnemann/` | Bahnemann | Errata applied 2026-06-26 |
-| `bailey_&_simon.md` | Bailey & Simon | Discussion merged in |
-| `chalk_et_al/` | Chalk et al. | |
-| `couret_&_venter/` | Couret & Venter | |
-| `fisher_et_al/` | Fisher et al. | |
-| `goldburd_et_al/` | Goldburd et al. | Errata applied 2026-06-26 |
-| `holmes_&_casotto/` | Holmes & Casotto | Errata applied 2026-06-26 |
-| `mahler/` | Mahler | |
-| `syllabus.md` | CAS | Exam 8 syllabus |
-
 ## File Structure in study/
 
 Every substantive chapter file has been enriched with a YAML frontmatter block and a TL;DR summary. The schema is:
